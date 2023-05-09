@@ -1,8 +1,9 @@
 package ru.netology;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 
 public class PhoneBook {
 
@@ -13,6 +14,11 @@ public class PhoneBook {
     }
 
     public String findByNumber(String number) {
-        return null;
+        Optional<String> result = book.entrySet()
+                .stream()
+                .filter(entry -> number.equals(entry.getValue()))
+                .map(Map.Entry::getKey)
+                .findFirst();
+        return result.get();
     }
 }

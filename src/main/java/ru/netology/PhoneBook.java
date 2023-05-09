@@ -1,13 +1,10 @@
 package ru.netology;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 public class PhoneBook {
 
-    Map<String, String> book = new HashMap<>();
+    TreeMap<String, String> book = new TreeMap<>();
     public int add(String name, String number) {
         book.put(name, number);
         return book.size();
@@ -27,6 +24,12 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-
+        for(String name : book.keySet()) {
+            if(name == book.firstKey()) {
+                System.out.print(name);
+            } else {
+                System.out.print(", " + name);
+            }
+        }
     }
 }

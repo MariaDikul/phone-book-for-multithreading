@@ -21,4 +21,8 @@ public class PhoneBook {
                 .findFirst();
         return result.get();
     }
+
+    public String findByName(String name) {
+        return null;
+    }
 }

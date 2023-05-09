@@ -46,4 +46,20 @@ public class PhoneBookTest {
         Assertions.assertEquals("cont1", result);
 
     }
+
+    @Test
+    public void testFindByName() {
+        // given:
+        PhoneBook book = new PhoneBook();
+        book.add("cont1", "111");
+        book.add("cont2", "222");
+        book.add("cont3", "333");
+
+        // when:
+        String result = book.findByName("cont1");
+
+        // then:
+        Assertions.assertEquals("111", result);
+
+    }
 }

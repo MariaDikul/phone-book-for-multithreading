@@ -25,7 +25,7 @@ public class PhoneBook {
 
     public void printAllNames() {
         for(String name : book.keySet()) {
-            if(name == book.firstKey()) {
+            if(Objects.equals(name, book.firstKey())) {
                 System.out.print(name);
             } else {
                 System.out.print(", " + name);

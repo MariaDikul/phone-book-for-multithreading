@@ -5,7 +5,6 @@ import ru.netology.PhoneBook;
 import java.util.*;
 
 public class PhoneBookTest {
-    PhoneBook book = new PhoneBook();
 
     @Test
     public void testAdd() {
@@ -16,9 +15,8 @@ public class PhoneBookTest {
         expected.put("cont3", "333");
         int expectedSize = expected.size();
 
-
-
         // when:
+        PhoneBook book = new PhoneBook();
         book.add("cont1", "111");
         book.add("cont1", "111");
         book.add("cont2", "222");
@@ -26,6 +24,26 @@ public class PhoneBookTest {
 
         // then:
         Assertions.assertEquals(expectedSize, result);
+
+    }
+
+    @Test
+    public void testFindByNumber() {
+        // given:
+        Map<String, String> expected = new HashMap<>();
+        expected.put("cont1", "111");
+        expected.put("cont2", "222");
+        expected.put("cont3", "333");
+
+        // when:
+        PhoneBook book = new PhoneBook();
+        book.add("cont1", "111");
+        book.add("cont2", "222");
+        book.add("cont3", "333");
+        String result = book.findByNumber("111");
+
+        // then:
+        Assertions.assertEquals("cont1", result);
 
     }
 }

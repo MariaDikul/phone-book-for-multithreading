@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.netology.PhoneBook;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.*;
 
 public class PhoneBookTest {
@@ -61,5 +63,18 @@ public class PhoneBookTest {
         // then:
         Assertions.assertEquals("111", result);
 
+    }
+
+    @Test
+    public void printAllNames() {
+        PhoneBook book = new PhoneBook();
+        book.add("cont1", "111");
+        book.add("cont2", "222");
+        book.add("cont3", "333");
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+        book.printAllNames();
+        Assertions.assertEquals("cont1, cont2, cont3", output.toString());
+        System.setOut(null);
     }
 }
